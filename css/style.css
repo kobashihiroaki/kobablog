@@ -1,0 +1,71 @@
+ul {
+    list-style-type: none;
+}
+
+header {
+    display: flex;
+    background-color: #333333;
+}
+
+header > a {
+    margin : 10px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+header > p:hover {
+    color: #00ffff;
+}
+
+.main {
+    display: flex;
+}
+
+.sidemenu {
+    /* border :1px solid blue; */
+    background-color: #333333;
+    width: 10%;
+    height: 500px;
+}
+
+.list {
+    text-align: left;
+}
+
+.list > li > a {
+    padding-left: 0px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.list > li > a:hover {
+    color: #00ffff;
+}
+
+.article {
+    border: 1px solid blue;
+    width: 90%;
+}
+
+.article > h1 {
+    font-size: x-large;
+}
+
+.content {
+    border: 1px solid red;
+    height: 90%;
+}
+
+.content > table {
+    width: 95%;
+    margin: 0 auto;
+}
+
+tr {
+    border: solid 1px;
+    height: 70px;
+}
+
+tr:nth-child(even) {
+    background: #eeeeee;
+}
