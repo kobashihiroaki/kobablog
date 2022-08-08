@@ -6,7 +6,7 @@ class BlogsModel {
         $this->db = new DBCon();
     }
     public function show_blog() {
-        $sql = "SELECT title, contributor from blogs";
+        $sql = "SELECT title, contributor, updated_at from blogs";
         $result = $this->db->getLink()->query($sql);
         $data = [];
         if ($result === FALSE) {
