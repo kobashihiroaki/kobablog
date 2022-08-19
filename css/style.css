@@ -13,6 +13,10 @@ header > a {
     color: #ffffff;
 }
 
+header > a:hover {
+    color: #00ffff;
+}
+
 header > p:hover {
     color: #00ffff;
 }
@@ -52,7 +56,6 @@ header > p:hover {
 }
 
 .content {
-    border: 1px solid red;
     height: 90%;
 }
 
@@ -68,4 +71,12 @@ tr {
 
 tr:nth-child(even) {
     background: #eeeeee;
+}
+
+.submit-button {
+    background-color: #cab64a;
+}
+
+.submit-form {
+    display: block;
 }
