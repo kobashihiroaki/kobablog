@@ -1,12 +1,12 @@
-document.getElementById("submit_button").addEventListener('click', function() {
-    let title = document.getElementById("title").value;
+function blogDelete(id) {
+    console.log(id);
     async function resJson() {
         data = {
-            action: 'add',
-            title: title
-        }; 
+            action: 'delete',
+            id: id
+        }
         const REQUEST_URL = 'api/index.php';
-        const res = await fetch(REQUEST_URL, 
+        const res = await fetch(REQUEST_URL,
             {
                 method: "POST",
                 body: JSON.stringify(data),
@@ -19,4 +19,5 @@ document.getElementById("submit_button").addEventListener('click', function() {
         console.log(success);
     }
     resJson();
-});
+    location.reload();
+}

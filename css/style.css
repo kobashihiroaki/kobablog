@@ -64,9 +64,13 @@ header > p:hover {
     margin: 0 auto;
 }
 
-tr {
+.blog-content tr {
     border: solid 1px;
     height: 70px;
+}
+
+.blog-content tr td {
+    vertical-align: middle;
 }
 
 tr:nth-child(even) {
@@ -79,4 +83,21 @@ tr:nth-child(even) {
 
 .submit-form {
     display: block;
+}
+
+.delete-button {
+    background-color: #cab64a;
+    vertical-align: middle;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+}
+
+.back {
+    background-color: #00ff00;
+}
+
+.back:hover {
+    cursor: pointer;
 }
