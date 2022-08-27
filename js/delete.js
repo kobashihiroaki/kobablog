@@ -1,5 +1,4 @@
 function blogDelete(id) {
-    console.log(id);
     async function resJson() {
         data = {
             action: 'delete',
@@ -15,8 +14,7 @@ function blogDelete(id) {
                     'Content-Type': 'application/json'
                 }
             });
-        let success = await res.json();
-        console.log(success);
+        await res.json();
     }
     resJson();
     location.reload();

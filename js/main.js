@@ -22,7 +22,7 @@ window.onload = function() {
             id = blog['id'];
             title = blog['title'];
             contributor = blog['contributor'];
-            updated_at = blog['updated'];
+            updated_at = blog['updated_at'];
             newRow = table.insertRow();
             newCell = newRow.insertCell();
             newText = document.createTextNode(title);
@@ -34,7 +34,9 @@ window.onload = function() {
             newText = document.createTextNode(updated_at);
             newCell.appendChild(newText);
             newCell = newRow.insertCell();
-            newCell.insertAdjacentHTML('afterend', `<button class="delete-button" onclick="blogDelete(${id})">×</button>`);
+            newCell.insertAdjacentHTML('beforeend', `<button class="delete-button" onclick="blogDelete(${id})">削除</button>`);
+            newCell = newRow.insertCell();
+            newCell.insertAdjacentHTML('beforeend', `<button class="detail-button" onclick="location.href='detail.html?id=${id}'">編集</button>`)
         });
     }
     resJson();

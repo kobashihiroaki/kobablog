@@ -1,10 +1,14 @@
 <?php
 class DBCon {
     private $link;
-    private static $hostname = 'localhost';
-    private static $username = 'root';
-    private static $passwd = 'hiroaki';
-    private static $dbname = 'kobablog';
+    // private static $hostname = HOST_NAME;
+    // private static $username = USER_NAME;
+    // private static $passwd = PASSWORD;
+    // private static $dbname = DB_NAME;
+    private static $hostname = "localhost";
+    private static $username = "root";
+    private static $passwd = "hiroaki";
+    private static $dbname = "kobablog";
 
     public function __construct() {
         $this->dbConnect();

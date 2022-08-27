@@ -101,3 +101,11 @@ tr:nth-child(even) {
 .back:hover {
     cursor: pointer;
 }
+
+.detail-button {
+    background-color: #ff00ff;
+}
+
+.detail-button:hover {
+    cursor: pointer;
+}

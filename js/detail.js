@@ -1,12 +1,14 @@
-document.getElementById("submit_button").addEventListener('click', function() {
-    let title = document.getElementById("title").value;
+window.onload = function() {
+    let query = location.search;
+    let value = query.split('=');
+    let id = value[1];
     async function resJson() {
         data = {
-            action: 'add',
-            title: title
-        }; 
+            action: 'detail',
+            id: id
+        }
         const REQUEST_URL = 'api/index.php';
-        const res = await fetch(REQUEST_URL, 
+        const res = await fetch(REQUEST_URL,
             {
                 method: "POST",
                 body: JSON.stringify(data),
@@ -15,7 +17,9 @@ document.getElementById("submit_button").addEventListener('click', function() {
                     'Content-Type': 'application/json'
                 }
             });
-        await res.json();
+        let blog = await res.json();
+        let title = blog["title"];
+        document.getElementById("title").setAttribute('value', title);
     }
     resJson();
-});
+}

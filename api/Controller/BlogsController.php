@@ -14,6 +14,8 @@ class BlogsController {
             return $this->instance->add_title($data);
         } else if($this->action === 'delete') {
             return $this->instance->delete_blog($data);
+        } else if($this->action === 'detail') {
+            return $this->instance->detail_blog($data);
         }
     }
 }
