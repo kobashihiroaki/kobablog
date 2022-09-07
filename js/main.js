@@ -1,7 +1,8 @@
 window.onload = function() {
     async function resJson() {
         data = {
-            action: "read"
+            action: "read",
+            model: "blog"
         };;
         const REQUEST_URL = 'api/index.php';
         const res = await fetch(REQUEST_URL, 

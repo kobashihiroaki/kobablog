@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/reset.css" type="text/css"/>
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <script type="text/javascript">
+        let query = location.search;
+        let value = query.split('=');
+        let id = value[1];
+    </script>
     <script defer src="js/detail.js"></script>
 </head>
 <body>
-    <div>
+    <h1 class="menu">編集</h1>
+    <form>
         <input id="title" type="text">
-        <button class="submit-button">編集</button>
-    </div>
-    <button class="back" onclick="location.href='article.html'">戻る</button>
+        <textarea class="new-content" id="content"></textarea>
+        <button type="button" id="update" class="submit-button">編集</button>
+    </form>
+    <button type="button" class="back" onclick="location.href='article.html'">戻る</button>
 </body>
+<script src="js/update.js"></script>
 </html>

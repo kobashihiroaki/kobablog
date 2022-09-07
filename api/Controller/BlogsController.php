@@ -4,18 +4,21 @@ class BlogsController {
     private $action;
     private $instance;
     public function __construct($data) {
-        $this->action = $data['action'];
-    }
-    public function dispatch($data) {
+        $this->action = $data["action"];
         $this->instance = new BlogsModel();
-        if($this->action === 'read') {
-            return $this->instance->show_blog();
-        } else if($this->action === 'add') {
+    }
+
+    public function dispatch($data) {
+        if($this->action === "read") {
+            return $this->instance->show();
+        } else if($this->action === "add") {
             return $this->instance->add_title($data);
-        } else if($this->action === 'delete') {
-            return $this->instance->delete_blog($data);
-        } else if($this->action === 'detail') {
-            return $this->instance->detail_blog($data);
+        } else if($this->action === "delete") {
+            return $this->instance->delete($data);
+        } else if($this->action === "detail") {
+            return $this->instance->detail($data);
+        } else if ($this->action === "update") {
+            return $this->instance->update($data);
         }
     }
 }

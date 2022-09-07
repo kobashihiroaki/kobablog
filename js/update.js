@@ -1,9 +1,13 @@
-window.onload = function() {
+document.getElementById("update").addEventListener('click', function() {
     async function resJson() {
+        let title = document.getElementById("title").value;
+        let content = document.getElementById("content").value;
         data = {
-            action: "detail",
+            action: "update",
             model: "blog",
-            id: id
+            id: id,
+            title: title,
+            content: content
         }
         const REQUEST_URL = 'api/index.php';
         const res = await fetch(REQUEST_URL,
@@ -15,11 +19,10 @@ window.onload = function() {
                     'Content-Type': 'application/json'
                 }
             });
-        let blog = await res.json();
-        let title = blog["title"];
-        let content = blog["content"];
-        document.getElementById("title").setAttribute('value', title);
-        document.getElementById("content").value = content;
+        let success = await res.json();
+        if (success == true) {
+            alert("編集が完了しました。");
+        }
     }
     resJson();
-}
+});

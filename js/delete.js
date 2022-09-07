@@ -1,7 +1,9 @@
 function blogDelete(id) {
+    let result = window.confirm("削除しますか？");
     async function resJson() {
         data = {
-            action: 'delete',
+            action: "delete",
+            model: "blog",
             id: id
         }
         const REQUEST_URL = 'api/index.php';
@@ -16,6 +18,8 @@ function blogDelete(id) {
             });
         await res.json();
     }
-    resJson();
-    location.reload();
+    if (result) {
+        resJson();
+        location.reload();
+    }
 }

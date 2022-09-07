@@ -24,11 +24,12 @@ class DBCon {
     public function dbConnect() {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         try {
-            $this->link = mysqli_connect($this::$hostname, $this::$username, $this::$passwd, $this::$dbname);
+            $this->link = mysqli_connect(self::$hostname, self::$username, self::$passwd, self::$dbname);
             mysqli_set_charset($this->link, 'utf8');
         } catch (mysqli_sql_exception $e){
             echo "接続に失敗しました";
             exit();
         }
+        return $this->link;
     }
 }

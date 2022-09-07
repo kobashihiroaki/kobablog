@@ -1,10 +1,11 @@
-window.onload = function() {
+document.getElementById("submit-button").addEventListener('click', function() {
     async function resJson() {
+        let contributor = document.getElementById("contributor").value;
         data = {
-            action: "detail",
-            model: "blog",
-            id: id
-        }
+            action: "add",
+            model: "contributor",
+            contributor: contributor
+        };
         const REQUEST_URL = 'api/index.php';
         const res = await fetch(REQUEST_URL,
             {
@@ -15,11 +16,10 @@ window.onload = function() {
                     'Content-Type': 'application/json'
                 }
             });
-        let blog = await res.json();
-        let title = blog["title"];
-        let content = blog["content"];
-        document.getElementById("title").setAttribute('value', title);
-        document.getElementById("content").value = content;
+        let success = await res.json();
+        if (success == true) {
+            alert("登録しました。");
+        }
     }
     resJson();
-}
+});

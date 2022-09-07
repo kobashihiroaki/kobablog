@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <script defer src="js/show_contributors.js"></script>
+</head>
+<body>
+    <h1 class="menu">新規登録</h1>
+    <div>
+        <input id="title" type="text" placeholder="タイトルを追加">
+        <textarea id="new-content" class="new-content" placeholder="内容を追加"></textarea>
+        <label>作成者を選択</label>
+        <select>
+            <option value="">作成者を選択してください。</option>
+            <option>hiroaki</option>
+        </select>
+        <button type="button" id="submit-button" class="submit-button">追加</button>
+    </div>
+    <button type="button" class="back" onclick="location.href='index.html'">戻る</button>
+</body>
+<script src="js/add_content.js"></script>
+</html>

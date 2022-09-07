@@ -6,7 +6,7 @@ class BlogsModel {
         $this->db = new DBCon();
     }
 
-    public function show_blog() {
+    public function show() {
         $sql = "SELECT id, title, contributor, updated_at from blogs";
         $result = $this->db->getLink()->query($sql);
         $data = [];
@@ -14,6 +14,9 @@ class BlogsModel {
             echo 'SQLエラー';
         }
         while ($row = mysqli_fetch_assoc($result)) {
+            if($row["contributor"] === null) {
+                $row["contributor"] = "";
+            }
             $data[] = $row;
         }
         mysqli_free_result($result);
@@ -22,12 +25,13 @@ class BlogsModel {
 
     public function add_title($data) {
         $title = $data["title"];
-        $sql = "INSERT INTO blogs (title) values ('" . $title . "')";
+        $content = $data["content"];
+        $sql = "INSERT INTO blogs (title, content) VALUES ('" . $title . "' ,'" . $content . "')";
         $result = $this->db->getLink()->query($sql);
         return $result;
     }
 
-    public function delete_blog($data) {
+    public function delete($data) {
         $id = $data["id"];
         // $sql = "DELETE FROM blogs WHERE id = :id";
         // $stmt = $this->db->getLink()->prepare($sql);
@@ -38,12 +42,21 @@ class BlogsModel {
         return $result;
     }
 
-    public function detail_blog($data) {
-        $id = $data['id'];
+    public function detail($data) {
+        $id = $data["id"];
         $sql = "SELECT * FROM blogs WHERE id = '" . $id . "'";
         $result = $this->db->getLink()->query($sql);
         $data = mysqli_fetch_assoc($result);
         mysqli_free_result($result);
         return $data;
+    }
+
+    public function update($data) {
+        $id = $data["id"];
+        $title = $data["title"];
+        $content = $data["content"];
+        $sql = "UPDATE blogs SET title = '" . $title . "' , content = '" . $content . "' WHERE id = '" . $id . "'";
+        $result = $this->db->getLink()->query($sql);
+        return $result; 
     }
 }

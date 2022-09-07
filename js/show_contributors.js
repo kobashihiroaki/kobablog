@@ -1,10 +1,9 @@
-document.getElementById("submit_button").addEventListener('click', function() {
-    let title = document.getElementById("title").value;
+window.onload = function() {
     async function resJson() {
         data = {
-            action: 'add',
-            title: title
-        }; 
+            action: "show",
+            model: "contributor"
+        }
         const REQUEST_URL = 'api/index.php';
         const res = await fetch(REQUEST_URL, 
             {
@@ -14,8 +13,9 @@ document.getElementById("submit_button").addEventListener('click', function() {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
-            });
-        await res.json();
+            });   
+        let contributors = await res.json();
+        console.log(contributors);
     }
     resJson();
-});
+}
